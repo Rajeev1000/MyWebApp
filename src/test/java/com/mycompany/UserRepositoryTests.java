@@ -1,10 +1,8 @@
 package com.mycompany;
 
 
-
 import com.mycompany.user.User;
 import com.mycompany.user.UserRepository;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +22,22 @@ public class UserRepositoryTests {
     @Test
     public void testAddNew(){
         User user=new User();
-        user.setEmail("alex.stevenson@gmail.com");
-        user.setPassword("alex123456");
+      //  Date date=new Date();
+        user.setEmail("alex.steven@gmail.com");
+        user.setAddress("Plutostraat 5");
+        user.setCompany("none");
+        user.setLastVisited("21-3-2021");
+        user.setPhonenumber("115");
+        //user.setPassword("alex123456");
+        user.setAssuranceNr("M456");
         user.setFirstName("Alex");
-        user.setLastName("Stevenson");
+        user.setLastName("Steven");
+     //   date.setDate("21-5-2021");
+      //  date.setIssues("hoofdpijn");
+
 
        User savedUser= repo.save(user);
+       //Date savedDate= repo.save(date);
 
         Assertions.assertThat(savedUser).isNotNull();
         Assertions.assertThat(savedUser.getId()).isGreaterThan(0);
@@ -49,11 +57,21 @@ public class UserRepositoryTests {
         Integer userId=1;
         Optional<User> optionalUser = repo.findById(userId);
         User user=optionalUser.get();
-        user.setPassword("hello2000");
+       // user.setPassword("hello1000");
+        user.setAddress("Wanicastraat 74");
+        user.setCompany("SZF");
+        user.setPhonenumber("8885577");
+        user.setLastVisited("22-4-2021");
+        user.setAssuranceNr("M1234");
         repo.save(user);
 
         User updatedUser =repo.findById(userId).get();
-        Assertions.assertThat(updatedUser.getPassword()).isEqualTo("hello2000");
+       // Assertions.assertThat(updatedUser.getPassword()).isEqualTo("hello1000");
+        Assertions.assertThat(updatedUser.getAddress()).isEqualTo("Wanicastraat 74");
+        Assertions.assertThat(updatedUser.getCompany()).isEqualTo("SZF");
+        Assertions.assertThat(updatedUser.getPhonenumber()).isEqualTo("8885577");
+        Assertions.assertThat(updatedUser.getLastVisited()).isEqualTo("22-4-2021");
+        Assertions.assertThat(updatedUser.getAssuranceNr()).isEqualTo("M1234");
     }
     @Test
     public void testGet(){
@@ -66,7 +84,7 @@ public class UserRepositoryTests {
     }
     @Test
     public void testDelete(){
-        Integer userId=2;
+        Integer userId=8;
         repo.deleteById(userId);
         Optional<User> optionalUser = repo.findById(userId);
         Assertions.assertThat(optionalUser).isNotPresent();

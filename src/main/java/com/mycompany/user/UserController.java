@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -48,7 +49,8 @@ public class UserController {
        }
     }
     @GetMapping("/users/delete/{id}")
-    public String deleteUser(@PathVariable("id")Integer id, RedirectAttributes ra  ){
+    public String deleteUser(@PathVariable("id")Integer id, RedirectAttributes ra  )
+    {
         try{
           service.delete(id);
             ra.addFlashAttribute("message","The user ID"+id+ "has been deleted.");
@@ -59,6 +61,25 @@ public class UserController {
 
         }
         return "redirect:/users";
+    }
+
+    // code for viewing different webpages
+    // Request om van 1 webpage naar een andere te gaan wordt door de "controller" behandeld.
+    // Dus de mapping moet eerst in de controller gedaan worden voordat men naar een andere webpage wilt, dat is standaard in Spring Framework
+
+    @RequestMapping("/covid-19")
+    public String covid19() {
+        return "covid-19";
+    }
+
+    @RequestMapping("index")
+    public String index() {
+        return "index";
+    }
+
+    @RequestMapping("login_frontp2")
+    public String loginfp2(){
+        return "login";
     }
 
 }
