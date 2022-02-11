@@ -2,16 +2,12 @@ package com.mycompany.Date;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "dates")
 public class Date {
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name="id",referencedColumnName = "users.id")
-    @JoinColumn(name="Dates",referencedColumnName = "lastVisited")
-    private List<Date> user_date;
+
 
 
 
