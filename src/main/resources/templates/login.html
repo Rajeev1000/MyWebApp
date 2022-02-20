@@ -8,11 +8,11 @@
   <div class="w3-bar w3-grey w3-card" id="myNavbar">
 
    <a th:href="@{index}" class="w3-bar-item w3-button w3-wide">BACK TO HOMEPAGE</a>
-   
-     
 
 
-  </div> 
+
+
+  </div>
 
 <head>
 <title>Login Page</title>
@@ -30,7 +30,7 @@
 <form class="box" >
 
 <input type="text" placeholder="Enter Username" name="userid">
-<input type="password" placeholder="Enter Password" name="pswrd">   
+<input type="password" placeholder="Enter Password" name="pswrd">
 <input type="button" name=""onclick="check(this.form)"value="Login"/>
 
 </form>
@@ -42,19 +42,19 @@
 -->
 
 <!--            letttt oppppp   -->
- <!--<script language="javascript">
+<!--<script language="javascript">
 function check(form)
 {
-  if(form.userid.value=="username" && form.pswrd.value=="psw")
+ if(form.userid.value=="username" && form.pswrd.value=="psw")
 
-     {
-      window.open( th:href="@{/users}");
+    {
+     window.open( th:href="@{/users}");
+    }
+
+  else
+    {
+     alert("The username and password you entered don't match")
      }
-
-   else
-     {
-      alert("The username and password you entered don't match")
-      }
 }
 </script>
 </body>
@@ -65,30 +65,60 @@ function check(form)
 </div>
 </body>
 
-  </div>
+ </div>
 </html>  -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+<body xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<div class="w3-top">
-    <div class="w3-bar w3-card" id="myNavbar"> </div>
-        <a th:href="@{index}"> BACK TO HOMEPAGE</a>
-   <div class="w3-right w3-hide-small"></div>
-</div>
-<head>
-    <title>LOGIN </title>
-</head>
-<body>
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- xmlns:padding="http://www.w3.org/1999/xhtml" xmlns:padding="http://www.w3.org/1999/xhtml">-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="w3-container w3-padding-large" id="login">
+    <body style="background-color:lightgrey;">
+
+    <div class="w3-container">
+        <div class="w3-top"><br>
+            <button class="w3-btn w3-rectangular w3-blue w3-ripple" >
+                <a th:href="@{index}" style="text-decoration: none">Back to homepage  </a>
+            </button>
+        </div><br><br>
+
+        <CENTER>
+
+            <div class="w3-container w3-light-blue ">
+
+                <h1 style="font-family:'Lucida Handwriting'; color:midnightblue;" > HUISARTSKLINIEK Drs. Harpal R.</h1><br>
+                <h3 class="w3-center">WELKOM OP DE LOGINPAGINA</h3><br>
+                <h4 class="w3-center">*Alleen toegankelijk voor het personeel.</h4>
+
+
+                <head>
+                    <title>LOGIN </title>
+                </head>
+
+                <body>
+
+
+                <div th:if="${param.error}">
+                    Onjuiste username of password.
+                </div>
+
+                <div th:if="${param.logout}">
+                    U bent uitgelogd.
+                </div>
+
+                <form th:action="@{login}" method="post"><br>
+                    <div><label> Username : <input type="text" name="username"/> </label></div><br>
+                    <div><label> Password: <input type="password" name="password"/> </label></div><br>
+                    <div><input type="submit" value="Sign In"/></div><br>
+                </form>
+
+        </CENTER>
+    </div>
+    </body>
 </body>
+</div>
 </html>

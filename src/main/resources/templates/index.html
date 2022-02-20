@@ -21,6 +21,7 @@
 <a class="h2" th:href="@{/users}">Manage Users</a>
 </div>-->
 
+
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
@@ -28,22 +29,21 @@
         height: 100%;
         line-height: 1.8;
     }
-
     /* Full height image header */
     .img_1 {
+        background-image: linear-gradient(cornflowerblue,gray);
+        /*background-image:url('../Photos/dokter.jpg');*/
         background-position: center;
-       background-size: cover;
-        /*background-image:url('dokter.jpg');
-        background-repeat: repeat-y;*/
-       background-image:linear-gradient(to right,#2af598,#009efd);
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover;
 
-        min-height:100%;
-    }
-
-
-
+        /*background-color: aquamarine;*/
+        min-height:100%; }
 </style>
-<body>
+
+
+
+
 
 <!-- Navigatiebar (sit on top) -->
 <div class="w3-top">
@@ -67,15 +67,12 @@
         </div>
     </div>
 
-
 </div>
 
 <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
     <i class="fa fa-bars"></i>
 </a>
-</div>
-</div>
 
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
@@ -86,11 +83,39 @@
 </nav>
 
 <!-- Header with full-height image -->
-<header class="img_1 w3-display-container w3-grayscale-min" id="home" >
-    <div class="w3-display-right w3-text-black" style="padding:52px" >
 
-        <b><span class="w3-jumbo w3-left-small" >HUISARTSKLINIEK Drs. Harpal R.</span></b><br>
-        <i class="w3-xlarge">It is health which is real wealth, and not pieces of gold and silver ~ Mahatma Gandhi</i> <br> <br> <!-- i staat voor italic-->
+<header class="img_1 w3-display-container w3-grayscale-min" id="home">
+    <!-- <div class="img_1 " style = "background-image: url('dokter.jpg');"></div>-->
+
+
+    <div class="w3-center  w3-text-black" style="padding:52px">
+
+        <b><span class=" w3-jumbo w3-container">HUISARTSKLINIEK Drs. Harpal R.</span></b>
+        <i class="w3-xlarge">It is health which is real wealth, and not pieces of gold and silver ~ Mahatma Gandhi</i> <br> <br>
+        <!-- i staat voor italic-->
+        <b><h4 class="w3-center">Mededelingen</h4></b>
+
+
+        <!-- hIER IS ER GEPROBEERD OM MIDDELS EEN SWITCH DE MEDEDELING WEER TE GEVEN-->
+        <!--<style>
+            #myDIV {
+                width: 100%;
+                padding: 50px 0;
+                text-align: center;
+                background-color: lightblue;
+                margin-top: 20px;
+            }
+        </style>
+
+        <div id="myDIV">
+            This is my DIV element.
+        </div>-->
+
+
+
+        <h6 class="w3-center">Vervanger indien de arts afwezig is : Drs. Ramdat I.<br>
+            Adres: Wanicaweg #123
+            Telefoon: +597 7659342</h6><br>
 
         <h5 class="w3-center">
             <i class="fa fa-phone fa-lg  w3-margin-right "></i>Telefoon: +597 450997</p>
@@ -99,24 +124,22 @@
 </header>
 
 
-</div>
-</div>
+
+
 
 <!-- About Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="about">
+<div class="w3-container w3-light-grey" style="padding:200px 16px" id="about">
     <h3 class="w3-center">ABOUT THE CLINIC</h3>
     <h3 class="w3-center w3-large">Huisarts of huisdokter is een arts die meestal niet in een ziekenhuis werkt.
         In het algemeen wordt de huisarts door mensen met gezondheidsproblemen in de ruimste zin als eerste aangesproken.
         De huisarts is zodoende de medisch specialist met als vak generalisme.
         Een huisarts is het eerste aanspreekpunt voor problemen met de gezondheid van de patiënten en houdt overzicht over de totale situatie van de patiënt.
         Een huisarts kent de patiënten vaak al jaren. Door een veelzijdige medische kennis kunnen veel gepresenteerde klachten zelf behandeld worden.
-        Voor de overige klachten wordt de paient doorverwezen naar een medisch specialist of andere hulpverlener.</h3>
-    <h3 class="w3-center w3-large">Het polikliniek is opegricht in het jaar 2010 door Drs. Harpal R., geboren in het jaar 2000.
+        Voor de overige klachten wordt de patiënt doorverwezen naar een medisch specialist of andere hulpverlener.</h3>
+    <h3 class="w3-center w3-large">Het polikliniek is opegricht in het jaar 2010 door Drs. Harpal R., geboren in het jaar 1980.
         Momenteel zijn er twee zusters aanwezig voor assistentie.</h3>
 
-    <div class="w3-row-padding w3-center" style="margin-top:64px">
-
-    </div>
+    <div class="w3-row-padding w3-center" style="margin-top:64px"></div>
 </div>
 
 
@@ -127,10 +150,10 @@
     <h3 class="w3-center">CONTACT</h3>
     <div style="margin-top:48px">
 
-        <b><h4 class="w3-center">Mededelingen</h4></b>
-        <h6 class="w3-center">Vervanger indien de arts afwezig is : Drs. Ramdat I.<br>
-            Adres: Wanicaweg #123
-            Telefoon: +597 7659342</h6><br>
+        <!-- <b><h4 class="w3-center">Mededelingen</h4></b>
+         <h6 class="w3-center">Vervanger indien de arts afwezig is : Drs. Ramdat I.<br>
+             Adres: Wanicaweg #123
+             Telefoon: +597 7659342</h6><br>-->
 
 
         <b><h4 class="w3-center">Spreekuren</h4></b>

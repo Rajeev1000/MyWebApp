@@ -1,13 +1,12 @@
 package com.mycompany.user;
 
-import com.mycompany.Date.Date;
+
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name="users")
+@SecondaryTable(name="Patient_details",pkJoinColumns =@PrimaryKeyJoinColumn(name="id"))
 public class User {
     public User() {
     }
@@ -33,16 +32,7 @@ public class User {
     private Integer id;
 
 
-   @ManyToMany(cascade=CascadeType.ALL)
-   private Set<Date> dates=new HashSet<>();
 
-    public Set<Date> getDates() {
-        return dates;
-    }
-
-    public void setDates(Set<Date> dates) {
-        this.dates = dates;
-    }
 
     @Column(nullable = false, unique = true,length = 45)
     private String email;
