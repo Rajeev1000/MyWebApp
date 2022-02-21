@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="users")
-@SecondaryTable(name="Patient_details",pkJoinColumns =@PrimaryKeyJoinColumn(name="id"))
+
 public class User {
     public User() {
     }
