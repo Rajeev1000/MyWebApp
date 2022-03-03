@@ -1,22 +1,24 @@
 package com.mycompany.P_details;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="Patient_Details")
 
 
 public class P_details {
+    public P_details(){
+
+    }
     @Id
+
+   //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false,name = "Date",length = 10)
+    @Column(name = "Date",length = 10,nullable = false)
     private String Date;
 
-    @Column(nullable = false,name="Sickness")
+    @Column(name="Sickness",length = 50,nullable =false)
     private String sickness;
 
     public Integer getId() {
@@ -38,8 +40,6 @@ public class P_details {
     public String getSickness() {
         return sickness;
     }
-
-
 
     public void setSickness(String sickness) {
         this.sickness = sickness;
