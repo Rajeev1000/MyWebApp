@@ -25,20 +25,49 @@
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
+
     body, html {
         height: 100%;
         line-height: 1.8;
     }
     /* Full height image header */
+
     .img_1 {
-        background-image: linear-gradient(cornflowerblue,gray);
-        /*background-image:url('../Photos/dokter.jpg');*/
+
+       /*background-image: linear-gradient(cornflowerblue,gray);*/
+        /*background-image:url("Photos/dokter.jpg");*/
+
         background-position: center;
         background-repeat: no-repeat; /* Do not repeat the image */
-        background-size: cover;
+        background-size: 100%;
 
         /*background-color: aquamarine;*/
         min-height:100%; }
+    * {
+        box-sizing: border-box;
+
+    }
+
+    /* Create three equal columns that floats next to each other */
+    .column {
+
+        float: left;
+        width: 33.33%;
+        padding: 50px;
+
+
+
+
+
+
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 </style>
 
 
@@ -47,15 +76,15 @@
 
 <!-- Navigatiebar (sit on top) -->
 <div class="w3-top">
-    <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a href="#home" class="w3-bar-item w3-button w3-wide">HOME</a>
+    <div class="w3-bar w3-white w3-card" id="myNavbar" >
+        <a href="#home" class="w3-bar-item w3-button w3-wide">STARTPAGINA</a>
         <!-- Right-sided navbar links (rechterkant navigatiebar)-->
         <div class="w3-right w3-hide-small">
 
 
 
-            <a th:href="@{covid-19}" class="w3-bar-item w3-button">Covid-19</a>
-            <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+            <a th:href="@{covid-19}" class="w3-bar-item w3-button">COVID-19</a>
+            <a href="#about" class="w3-bar-item w3-button">OVER</a>
             <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
             <!--<a th:href="@{login_frontp2}"class="w3-bar-item w3-button">LOGIN</a>-->
             <a th:href="@{/users}" class="w3-bar-item w3-button">LOGIN</a>
@@ -84,59 +113,67 @@
 
 <!-- Header with full-height image -->
 
-<header class="img_1 w3-display-container w3-grayscale-min" id="home">
-    <!-- <div class="img_1 " style = "background-image: url('dokter.jpg');"></div>-->
+<header class="img_1 w3-display-container w3-grayscale-min" id="home" style="background-image: url('https://media.istockphoto.com/photos/stethoscope-or-phonendoscope-on-a-doctors-white-desk-on-cloudy-of-picture-id1137049930?k=20&m=1137049930&s=612x612&w=0&h=9qB1a3sZJ_1BwjXbH-jzN8j4woMgrU-351pGzJFM5tM=')">
+    <!-- <div class="img_1 " style = "background-image: url('dokter.jpg');"></div>   https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80-->
 
 
     <div class="w3-center  w3-text-black" style="padding:52px">
 
-        <b><span class=" w3-jumbo w3-container">HUISARTSKLINIEK Drs. Harpal R.</span></b>
+        <b><span class=" w3-jumbo w3-container"style="font-family:SansSerif">HUISARTSKLINIEK Drs. Harpal R.</span></b>
         <i class="w3-xlarge">It is health which is real wealth, and not pieces of gold and silver ~ Mahatma Gandhi</i> <br> <br>
         <!-- i staat voor italic-->
-        <b><h4 class="w3-center">Mededelingen</h4></b>
+        <b><h4 class="w3-margin-left" style="text-align: left">Mededelingen</h4></b>
 
-
-        <!-- hIER IS ER GEPROBEERD OM MIDDELS EEN SWITCH DE MEDEDELING WEER TE GEVEN-->
-        <!--<style>
-            #myDIV {
-                width: 100%;
-                padding: 50px 0;
-                text-align: center;
-                background-color: lightblue;
-                margin-top: 20px;
-            }
-        </style>
-
-        <div id="myDIV">
-            This is my DIV element.
-        </div>-->
-
-
-
-        <h6 class="w3-center">Vervanger indien de arts afwezig is : Drs. Ramdat I.<br>
-            Adres: Wanicaweg #123
-            Telefoon: +597 7659342</h6><br>
-
-        <h5 class="w3-center">
-            <i class="fa fa-phone fa-lg  w3-margin-right "></i>Telefoon: +597 450997</p>
-            <i class="fa fa-whatsapp fa-lg w3-margin-right"></i> Whatsapp: +597 8760897 </p></h5>
+        <h6 style="text-align: left">
+            <i class="w3-margin-left" ></i>Vervanger indien de arts afwezig is : Drs. Ramdat I.<br>
+            <i class="w3-margin-left" ></i>Adres: Wanicaweg #123
+            <br>
+            <i class="w3-margin-left" ></i>Telefoon: +597 7659342</h6>
+<br>
+        <h6 style="text-align: left">
+            <i class="fa fa-phone fa-lg w3-margin-left " ></i>Telefoon: +597 450997</p>
+            <i class="fa fa-whatsapp fa-lg w3-margin-left" ></i> Whatsapp: +597 8760897 </p></h6>
     </div>
+
 </header>
 
 
 
 
-
+<br>
 <!-- About Section -->
-<div class="w3-container w3-light-grey" style="padding:200px 16px" id="about">
-    <h3 class="w3-center">ABOUT THE CLINIC</h3>
-    <h3 class="w3-center w3-large">Huisarts of huisdokter is een arts die meestal niet in een ziekenhuis werkt.
+
+
+<!--Kolommen geplaatst-->
+
+    <div class="row" style="padding:100px;background-image: url('https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
+        <div class="column" style="background-color:darkcyan;color: white; border-radius:100px;height:350px">
+            <h2><b>Hart- en vaatziekten</b></h2>
+            <p>Hart- en vaatziekten zijn vandaag de dag nog steeds de belangrijkste doodsoorzaak en invaliditeit in de wereld. Hart- en vaatziekten zijn ook in Suriname doodsoorzaak nummer één.</p>
+            <a  th:href="@{/Ziekte1}" class="w3-bar-item w3-button" style="color: white; font-size:150%"><b>Meer Lezen</b></a>
+        </div>
+        <div class="column" style="background-color:darkcyan;color: white; border-radius:100px;height:350px">
+            <h2><b>Diabetes</b></h2>
+            <p> Diabetes, suikerziekte, is een ziekte waarbij het lichaam de bloedsuiker niet meer in evenwicht kan houden. Dat komt doordat het lichaam te weinig van het hormoon insuline heeft.  </p>
+            <a  th:href="@{/Ziekte2}" class="w3-bar-item w3-button" style="color: white; font-size:150%"><b>Meer Lezen</b></a>
+        </div>
+        <div class="column" style="background-color:darkcyan;color: white;border-radius:100px;height:350px">
+            <h2><b>Hoge bloeddruk</b></h2>
+            <p>Een hoge bloeddruk verhoogt de kans op een hartinfarct, beroerte en hartfalen. Lees meer over de klachten, oorzaken en gevolgen van een hoge bloeddruk.  </p><br>
+            <a  th:href="@{/Ziekte3}" class="w3-bar-item w3-button" style="color: white; font-size:150%"><b>Meer Lezen</b></a>
+        </div>
+    </div>
+
+<br>
+<div class="w3-container" style=" background-color:darkcyan  ;padding:100px 10px" id="about">
+    <h3 class="w3-center" style="color: white;font-family: Calibri">OVER DE KLINIEK</h3>
+    <h3 class="w3-center w3-large " style="color: white">Huisarts of huisdokter is een arts die meestal niet in een ziekenhuis werkt.
         In het algemeen wordt de huisarts door mensen met gezondheidsproblemen in de ruimste zin als eerste aangesproken.
         De huisarts is zodoende de medisch specialist met als vak generalisme.
         Een huisarts is het eerste aanspreekpunt voor problemen met de gezondheid van de patiënten en houdt overzicht over de totale situatie van de patiënt.
         Een huisarts kent de patiënten vaak al jaren. Door een veelzijdige medische kennis kunnen veel gepresenteerde klachten zelf behandeld worden.
         Voor de overige klachten wordt de patiënt doorverwezen naar een medisch specialist of andere hulpverlener.</h3>
-    <h3 class="w3-center w3-large">Het polikliniek is opegricht in het jaar 2010 door Drs. Harpal R., geboren in het jaar 1980.
+    <h3 class="w3-center w3-large" style="color: white">Het polikliniek is opegricht in het jaar 2010 door Drs. Harpal R., geboren in het jaar 1980.
         Momenteel zijn er twee zusters aanwezig voor assistentie.</h3>
 
     <div class="w3-row-padding w3-center" style="margin-top:64px"></div>
@@ -145,8 +182,8 @@
 
 
 <!-- Contact Section -->
-
-<div class="w3-container w3-grey" style="padding:100px 10px" id="contact">
+<br>
+<div class="w3-container" style="background-image:linear-gradient(lightseagreen,white);padding:100px 10px" id="contact">
     <h3 class="w3-center">CONTACT</h3>
     <div style="margin-top:48px">
 

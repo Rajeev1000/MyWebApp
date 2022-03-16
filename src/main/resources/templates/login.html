@@ -82,7 +82,7 @@ function check(form)
     <div class="w3-container">
         <div class="w3-top"><br>
             <button class="w3-btn w3-rectangular w3-blue w3-ripple" >
-                <a th:href="@{index}" style="text-decoration: none">Back to homepage  </a>
+                <a th:href="@{index}" style="text-decoration: none">Terug naar startpagina </a>
             </button>
         </div><br><br>
 
@@ -111,14 +111,15 @@ function check(form)
                 </div>
 
                 <form th:action="@{login}" method="post"><br>
-                    <div><label> Username : <input type="text" name="username"/> </label></div><br>
-                    <div><label> Password: <input type="password" name="password"/> </label></div><br>
-                    <div><input type="submit" value="Sign In"/></div><br>
+                    <div><label> Gebruikersnaam : <input type="text" name="username"/> </label></div><br>
+                    <div><label> Wachtwoord: <input type="password" name="password"/> </label></div><br>
+                    <div><input type="submit" value="Login"/></div><br>
                 </form>
 
         </CENTER>
     </div>
     </body>
 </body>
+
 </div>
 </html>

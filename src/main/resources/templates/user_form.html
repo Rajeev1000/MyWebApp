@@ -6,6 +6,17 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
+
+<!--<div class="text-light" style="background-image: url('https://source.unsplash.com/1920x1080/?nature');
+                                   position: absolute;
+                                   left: 0;
+                                   top: 0;
+                                   opacity: 0.6;
+                                   z-index: -1;
+                                   min-height: 100vh;
+                                   min-width: 100vw;">
+</div>-->
+
 <div class="container-fluid ">
    <div class="text-center"> <h2>[[${pageTitle}]]</h2></div>
 <form th:action="@{/users/save}" method="post" th:object="${user}"
@@ -13,46 +24,46 @@
     <input type="hidden" th:field="*{id}">
     <div class="border border-secondary rounded p-3">
         <div class="form-group row">
-            <label class="col-sm-4 col-form-label">E-mail</label>
+            <label class="col-sm-4 col-form-label">Geboortedatum</label>
             <div class="col-sm-8">
-                <input type="email" th:field="*{email}" class="form-control" required minlength="8" maxlength="45"/>
+                <input type="date" th:field="*{email}" class="form-control" required minlength="8" maxlength="45"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-4 col-form-label">First Name</label>
+            <label class="col-sm-4 col-form-label">Voornaam</label>
             <div class="col-sm-8">
                 <input type="text" th:field="*{firstName}" class="form-control" required minlength="2" maxlength="45"/>
                 </div>
             </div>
         <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Last Name</label>
+            <label class="col-sm-4 col-form-label">Achternaam</label>
             <div class="col-sm-8">
                 <input type="text" th:field="*{lastName}" class="form-control" required minlength="2" maxlength="45"/>
             </div>
     </div>
         <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Phone Number</label>
+            <label class="col-sm-4 col-form-label">Telefoonnr</label>
             <div class="col-sm-8">
                 <input type="text" th:field="*{phonenumber}" class="form-control" required minlength="5" maxlength="15"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Address</label>
+            <label class="col-sm-4 col-form-label">Adres</label>
             <div class="col-sm-8">
                 <input type="text" th:field="*{address}" class="form-control" required minlength="5" maxlength="25"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Company</label>
+            <label class="col-sm-4 col-form-label">VerzekeringsMij</label>
            <div class="col-sm-8">
               <!-- <input type="text" th:field="*{company}" class="form-control" required minlength="5" maxlength="15"/>-->
                <div class="input-group mb-3">
                    <div class="input-group-prepend">
-                       <label class="input-group-text" for="inputGroupSelect01">Input</label>
+                       <label class="input-group-text" for="inputGroupSelect01">Voer in</label>
                    </div>
 
                    <select class="custom-select" th:field="*{company}" id="inputGroupSelect01" >
-                    <option value ="Choose....">Choose</option>
+                    <option value ="Choose....">Kiez een optie</option>
                        <option value="SZF" >SZF</option>
                        <option value="Assuria" >Assuria</option>
                        <option value="Self Reliance" >Self Reliance</option>
@@ -62,21 +73,21 @@
 
         </div>
         <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Assurance Number</label>
+            <label class="col-sm-4 col-form-label">Verzekeringsnr</label>
             <div class="col-sm-8">
                 <input type="text" th:field="*{assuranceNr}" class="form-control" required minlength="2" maxlength="45" />
 
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Last Visited</label>
+            <label class="col-sm-4 col-form-label">Laatst bezocht</label>
             <div class="col-sm-8">
                 <input type="date" th:field="*{lastVisited}" class="form-control" required minlength="5" maxlength="15"/>
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-primary m-2">Save</button>
-            <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Cancel</button>
+            <button type="submit" class="btn btn-primary m-2">Opslaan</button>
+            <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Annuleren</button>
         </div>
         </div>
 </form>

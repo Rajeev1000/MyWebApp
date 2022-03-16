@@ -23,7 +23,8 @@ public class P_detailsRepositoryTests {
     @Test
     public void testAddNew(){
         P_details p_details=new P_details();
-        p_details.setId(12);
+        p_details.setId(1);
+        p_details.setP_id(10);
         p_details.setDate("28-5-2020");
         p_details.setSickness("Hoesten");
 

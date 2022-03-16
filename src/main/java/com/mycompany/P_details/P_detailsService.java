@@ -35,5 +35,5 @@ public class P_detailsService {
         }
         repo2.deleteById(id);
     }
-    // er moet nog delete method komen
+
 }

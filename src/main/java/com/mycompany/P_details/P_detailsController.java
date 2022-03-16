@@ -25,13 +25,13 @@ public class P_detailsController {
    @GetMapping("/P_details/new")
     public String showNewP_detailsForm(Model model){
        model.addAttribute("p_details",new P_details());
-       model.addAttribute("pageTitle","Add New Detail");
+       model.addAttribute("pageTitle","Nieuwe info toevoegen");
        return "P_detailsForm";
    }
    @PostMapping("/P_details/save")
     public  String saveP_details(P_details p_details, RedirectAttributes ra){
        service2.save(p_details);
-       ra.addFlashAttribute("message","The detail has been saved succesfully.");
+       ra.addFlashAttribute("message","De informatie is opgeslagen.");
        return "redirect:/P_details";
    }
    @GetMapping("/P_details/edit/{id}")
@@ -39,7 +39,7 @@ public class P_detailsController {
        try{
            P_details p_details=service2.get(id);
            model.addAttribute("p_details",p_details);
-           model.addAttribute("pageTitle","Edit Detail(ID:"+id+ ")");
+           model.addAttribute("pageTitle","Info bewerken(ID:"+id+ ")");
            return "P_detailsForm";
        }catch (P_detailsNotFoundException e){
            ra.addFlashAttribute("message",e.getMessage());
@@ -51,7 +51,7 @@ public class P_detailsController {
    {
        try{
            service2.delete(id);
-           ra.addFlashAttribute("message","The detail ID"+id+"has been deleted.");
+           ra.addFlashAttribute("message","De informatie van ID"+id+"is verwijderd.");
 
        }catch (P_detailsNotFoundException e){
            ra.addFlashAttribute("message",e.getMessage());
@@ -62,5 +62,7 @@ public class P_detailsController {
     public String P_details() {
         return "P_details";
     }
-    // hier moet er nog andere mappings geplaats worden die naar de webpages verwijzen
+
+
+
 }

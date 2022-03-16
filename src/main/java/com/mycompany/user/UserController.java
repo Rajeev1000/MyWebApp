@@ -26,13 +26,13 @@ public class UserController {
     @GetMapping("/users/new")
     public String showNewForm(Model model){
         model.addAttribute("user",new User());
-        model.addAttribute("pageTitle", "Add New User");
+        model.addAttribute("pageTitle", "Nieuwe Patiënt toevoegen");
         return "user_form";
     }
     @PostMapping("/users/save")
     public String saveUser(User user, RedirectAttributes ra){
         service.save(user);
-        ra.addFlashAttribute("message","The user has been saved succesfully.");
+        ra.addFlashAttribute("message","De Patiënt is opgeslagen");
         return "redirect:/users";
     }
     @GetMapping("/users/edit/{id}")
@@ -53,7 +53,7 @@ public class UserController {
     {
         try{
           service.delete(id);
-            ra.addFlashAttribute("message","The user ID"+id+ "has been deleted.");
+            ra.addFlashAttribute("message","De Patient ID"+id+ "is verwijderd.");
 
 
         } catch (UserNotFoundException e){
@@ -80,6 +80,19 @@ public class UserController {
     @RequestMapping("login_frontp2")
     public String loginfp2(){
         return "login";
+    }
+
+    @RequestMapping("Ziekte1")
+    public String ziekte1(){
+        return "Ziekte1";
+    }
+    @RequestMapping("Ziekte2")
+    public String ziekte2(){
+        return "Ziekte2";
+    }
+    @RequestMapping("Ziekte3")
+    public String ziekte3(){
+        return "Ziekte3";
     }
 
 }
