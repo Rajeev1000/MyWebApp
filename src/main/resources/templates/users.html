@@ -2,21 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Manage Users</title>
+    <title>Manage Patients</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container-fluid text-center">
-   <div> <h2>Manage Users</h2></div>
+   <div> <h2>Algemene Info Patiënten</h2></div>
     <div class="m-2">
-        <a class="h3" th:href="@{/users/new}">Add New User</a>
+        <br>
+        <p align="center">
+            <button class="w3-btn w3-rectangular w3-black w3-ripple">
+                <a class="h3" th:href="@{/users/new}">Niewe Patiënt Toevoegen</a>
+
+
+        <div class="m-2">
+        <p align="center">
+        <a class="h3" th:href="@{P_details}">Meer info over Patiënten</a>
+    </div>
+        </p>
+    </div>
+
 
 
 
         <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
+            <p align="right">
+                <input type="submit" value="Afmelden"/>
+
         </form>
 
 
@@ -26,21 +40,25 @@
        [[${message}]]
     </div>
 
+
+
+
+
  <div>
-     <input class="form-control" id="myInput" type="text" placeholder="Search by name...">
+     <input class="form-control" id="myInput" type="text" placeholder="Zoeken...">
      <br>
      <table class="table table-bordered">
          <thead class="thead-dark">
             <tr>
                 <th>ID</th>
-                <th>E-mail</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Phone Number</th>
-                <th>Address</th>
-                <th>Last Visited</th>
-                <th>Company</th>
-                <th>AssuranceNr</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Geboortedatum</th>
+                <th>Telefoonnummer</th>
+                <th>Adres</th>
+                <th>Laatst bezocht</th>
+                <th>Verzekerings-maatschappij</th>
+                <th>VerzekeringsNr</th>
                 <th></th>
             </tr>
 
@@ -49,10 +67,9 @@
          <th:block th:each="user : ${listUsers}">
              <tr>
                  <td>[[${user.id}]]</td>
-                 <td>[[${user.email}]]</td>
                  <td>[[${user.firstName}]]</td>
                  <td>[[${user.lastName}]]</td>
-
+                 <td>[[${user.email}]]</td>
                  <td>[[${user.phonenumber}]]</td>
                  <td>[[${user.address}]]</td>
                  <td>[[${user.lastVisited}]]</td>
@@ -60,8 +77,8 @@
 
                  <td>[[${user.AssuranceNr}]]</td>
                  <td>
-                     <a class="h4 mr-3" th:href="@{'/users/edit/' + ${user.id}}">Edit</a>
-                     <a class="h4" th:href="@{'/users/delete/' + ${user.id}}">Delete</a>
+                     <a class="h6 mr-3" th:href="@{'/users/edit/' + ${user.id}}">Bewerken</a>
+                     <a class="h6" th:href="@{'/users/delete/' + ${user.id}}">Verwijderen</a>
                  </td>
 
              </tr>
@@ -88,6 +105,8 @@
         });
     </script>
 </div>
+
+
 
 <!--  HIER IS ER GEPROBEERD OM EEN MIDDELS EEN SWITCH DE MEDEDELING WEER TE GEVEN-->
 <!--<button onclick="myFunction()">Try it</button>

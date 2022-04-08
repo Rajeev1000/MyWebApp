@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="users")
-@SecondaryTable(name="Patient_details",pkJoinColumns =@PrimaryKeyJoinColumn(name="id"))
+
 public class User {
     public User() {
     }
@@ -34,11 +34,10 @@ public class User {
 
 
 
-    @Column(nullable = false, unique = true,length = 45)
+    @Column(nullable = false,length = 45)
     private String email;
 
-    //@Column(length = 15,nullable = false)
-   // private String password;
+
 
     @Column(length = 45,nullable = false,name="first_name")
     private String firstName;
@@ -58,7 +57,7 @@ public class User {
     @Column(length = 10,nullable = false,name = "lastVisited")
     private String lastVisited;
 
-   // private boolean enabled;
+
    @Column(length = 45,nullable = false,name = "AssuranceNr")
    private String AssuranceNr;
 
@@ -80,13 +79,7 @@ public class User {
         this.email = email;
     }
 
-  //  public String getPassword() {
-   //     return password;
-  //  }
 
-  //  public void setPassword(String password) {
-   //     this.password = password;
-   // }
 
     public String getFirstName() {
         return firstName;
@@ -96,13 +89,7 @@ public class User {
         this.firstName = firstName;
     }
 
-    //public boolean isEnabled() {
-       // return enabled;
-   // }
 
-  //  public void setEnabled(boolean enabled) {
-    //    this.enabled = enabled;
-   // }
 
     public String getLastName() {
         return lastName;
