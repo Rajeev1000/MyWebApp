@@ -22,6 +22,7 @@ public class LabresultsTest {
     public void testAddNew(){
         Labresults labresults=new Labresults();
         labresults.setP_id(4);
+        labresults.setAchternaam("world");
         labresults.setDate("22-2-2005");
         labresults.setConclusion("suiker");
 
@@ -44,6 +45,7 @@ public class LabresultsTest {
         Optional<Labresults> optionalLabresults= repo3.findById(labresultsId);
         Labresults labresults=optionalLabresults.get();
         labresults.setP_id(3);
+        labresults.setAchternaam("");
         labresults.setDate("22-3-2007");
         labresults.setConclusion("");
         repo3.save(labresults);

@@ -11,17 +11,29 @@ public class Labresults {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id",nullable = false)
     private Integer id;
 
     @Column(name = "P_Id",nullable = false)
     private Integer p_id;
+
+    @Column(name = "Achternaam",nullable = false)
+    private String achternaam;
 
     @Column(name = "date",length = 10,nullable = false)
     private String date;
 
     @Column(name = "Conclusion",nullable = false)
     private String conclusion;
+
+    public String getAchternaam() {
+        return achternaam;
+    }
+
+    public void setAchternaam(String achternaam) {
+        this.achternaam = achternaam;
+    }
 
     public Integer getId() {
         return id;
@@ -60,8 +72,10 @@ public class Labresults {
         return "Labresults{" +
                 "id=" + id +
                 ", p_id=" + p_id +
+                ", achternaam='" + achternaam + '\'' +
                 ", date='" + date + '\'' +
                 ", conclusion='" + conclusion + '\'' +
                 '}';
     }
 }
+

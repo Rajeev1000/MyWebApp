@@ -2,63 +2,59 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Labresultaten</title>
+    <title>Appointments</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="w3-top"><br>
-    <button class="w3-btn w3-rectangular w3-blue w3-ripple" >
-        <a th:href="@{users}" style="text-decoration: none">Terug</a>
-    </button>
+<button class="w3-btn w3-rectangular w3-blue w3-ripple" >
+    <a th:href="@{users}" style="text-decoration: none">Terug</a>
+</button>
 </div><br><br>
 
 <div class="container-fluid text-center">
-    <div> <h2>Labresultaten van Patiënten</h2>
+    <div> <h2>Afspraken van Patiënten</h2>
     </div>
     <br>
     <div class="m-2">
-        <a class="h3" th:href="@{/Labresults/new}">Nieuwe resultaat toevoegen</a>
+        <a class="h3" th:href="@{/Appointments/new}">Nieuwe afspraak toevoegen</a>
     </div>
 
-<input class="form-control" id="myInput" type="text" placeholder="Zoeken...">
+<input class="form-control" id="myInput" type="number" placeholder="Zoeken...">
 <br>
 <table class="table table-bordered">
     <thead class="thead-dark">
     <tr>
-        <th>L_id</th>
         <th>P_id</th>
-        <th>Achternaam</th>
         <th>Datum</th>
-        <th>Resultaat</th>
+        <th>Tijd</th>
         <th></th>
     </tr>
     </thead>
-    <tbody id="Labresults">
-    <th:block th:each="labresults : ${listLabresults}">
+    <tbody id="Appointments">
+    <th:block th:each="appointments : ${listAppointments}">
         <tr>
-            <td>[[${labresults.id}]]</td>
-            <td>[[${labresults.p_id}]]</td>
-            <td>[[${labresults.achternaam}]]</td>
-            <td>[[${labresults.date}]]</td>
-            <td>[[${labresults.conclusion}]]</td>
+
+            <td>[[${appointments.p_id}]]</td>
+            <td>[[${appointments.Date}]]</td>
+            <td>[[${appointments.Time}]]</td>
 
             <td>
 
-                <a class="h4 mr-3" th:href="@{'/Labresults/edit/' + ${labresults.id}}">Bewerken</a><!--Edit en delete nog niet klaar-->
-                <a class="h4"  th:href="@{'/Labresults/delete/' + ${labresults.id}}">Verwijderen</a>
+                <a class="h4 mr-3" th:href="@{'/Appointments/edit/' + ${appointments.id}}">Bewerken</a>
+                <a class="h4"  th:href="@{'/Appointments/delete/' + ${appointments.id}}">Verwijderen</a>
             </td>
         </tr>
     </th:block>
     </tbody>
 </table>
-</div>
 <script>
     $(document).ready(function(){
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
-            $("#Labresults tr").filter(function() {
+            $("#Appointments tr").filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
