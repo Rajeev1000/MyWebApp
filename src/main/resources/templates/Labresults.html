@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Labresultaten</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="w3-top"><br>
+    <button class="w3-btn w3-rectangular w3-blue w3-ripple" >
+        <a th:href="@{users}" style="text-decoration: none">Terug</a>
+    </button>
+</div><br><br>
+
+<div class="container-fluid text-center">
+    <div> <h2>Labresultaten van Patiënten</h2>
+    </div>
+    <br>
+    <div class="m-2">
+        <a class="h3" th:href="@{/Labresults/new}">Nieuwe resultaat toevoegen</a>
+    </div>
+
+<input class="form-control" id="myInput" type="text" placeholder="Zoeken...">
+<br>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th>L_id</th>
+        <th>P_id</th>
+        <th>Achternaam</th>
+        <th>Datum</th>
+        <th>Resultaat</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="Labresults">
+    <th:block th:each="labresults : ${listLabresults}">
+        <tr>
+            <td>[[${labresults.id}]]</td>
+            <td>[[${labresults.p_id}]]</td>
+            <td>[[${labresults.achternaam}]]</td>
+            <td>[[${labresults.date}]]</td>
+            <td>[[${labresults.conclusion}]]</td>
+
+            <td>
+
+                <a class="h4 mr-3" th:href="@{'/Labresults/edit/' + ${labresults.id}}">Bewerken</a><!--Edit en delete nog niet klaar-->
+                <a class="h4"  th:href="@{'/Labresults/delete/' + ${labresults.id}}">Verwijderen</a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#Labresults tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+</div>
+</body>
+</html>
