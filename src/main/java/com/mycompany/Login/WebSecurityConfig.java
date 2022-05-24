@@ -26,8 +26,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .logout()
                 .logoutSuccessUrl("/index")
-                    .permitAll();
+                    .permitAll()
+                .and()
+                .headers()
+                        .frameOptions()
+                .sameOrigin();
     }
+
 
     @Bean
     @Override

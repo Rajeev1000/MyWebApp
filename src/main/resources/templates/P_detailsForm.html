@@ -2,30 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
-    <title>Add New Detail</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[[${pageTitle}]]</title>
+
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-
-
-
 <body>
 <div class="container-fluid">
-    <div class="text-center">
-        <h2>Niewe Info Toevoegen</h2></div>
+    <div class="text-center"><h2>[[${pageTitle}]]</h2></div>
+
     <form th:action="@{/P_details/save}" method="post" th:object="${p_details}"
-    style="max-width: 500px;margin: 0 auto">
+          style="max-width: 500px;margin: 0 auto">
 
-
-        <input type="hidden" th:field="*{id}">
+        <!--<input type="hidden" th:field="*{id}">-->
         <div class="border border-secondary rounded p-3">
-           <!-- <div class="form-group row">
-                <label class="col-sm-4 col-form-label">ID </label>
-                <div class="col-sm-8">
-                    <input type="hidden" th:field="*{id}" class="form-control" required minlength="1" maxlength="100"/>
-                </div>
+            <!-- <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">ID </label>
+                  <div class="col-sm-8">
+                      <input type="number" th:field="*{id}" class="form-control" required minlength="1" maxlength="100"/>
+                  </div>
 
-            </div>-->
-
+              </div>-->
+            <input type="hidden" th:field="*{id}">
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">P_id</label>
@@ -34,19 +33,21 @@
                 </div>
 
             </div>
+
+
+
+
+            <!-- <div class="form-group row">
+                 <label class="col-sm-4 col-form-label">Achternaam</label>
+                 <div class="col-sm-8">
+                     <input type="text" th:field="*{naam}" class="form-control" required minlength="5" maxlength="15"/>
+                 </div>
+
+             </div> -->
+
+
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Naam </label>
-                <div class="col-sm-8">
-
-                    <input type="text" th:field="*{naam}" class="form-control" required minlength="5" maxlength="15"/>
-
-
-                </div>
-
-            </div>
-
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Datum</label>
+                <label class="col-sm-4 col-form-label">Bezocht op </label>
                 <div class="col-sm-8">
 
                     <input type="date" th:field="*{date}" class="form-control" required minlength="5" maxlength="15"/>
@@ -58,8 +59,8 @@
 
 
 
-          <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Ziekte </label>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Reden bezoek </label>
                 <div class="col-sm-8">
 
                     <input type="text" th:field="*{sickness}" class="form-control" required minlength="2" maxlength="50"/>
@@ -67,9 +68,8 @@
 
                 </div>
 
-
-
             </div>
+
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Voorgeschreven </label>
                 <div class="col-sm-8">
@@ -78,24 +78,142 @@
 
 
                 </div>
+
+            </div>
+
+
             <div class="text-center">
+                <!--<div th:if="${param.error}">
+                    Patient met deze id bestaat niet.
+                </div>
+                <div th:if="${param.error}">
+                    Onjuiste gebruikersnaam of wachtwoord.
+                </div>
+              ik probeerde dit weer te geven bij die error page, maar lukt niet   -->
+
+
                 <button type="submit" class="btn btn-primary m-2">Opslaan</button><!-- Save button geeft error.Bij input van sickness herkend het niet als een waarde,waardoor het steeds null aangeeft-->
                 <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Annuleren</button>
 
             </div>
         </div>
 
-
-
-
-
     </form>
 </div>
+
 <script type="text/javascript">
     function cancelForm(){
         window.location="[[@{/P_details}]]";
 
     }
 </script>
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        .show {display: block;}
+
+        #my-div /*rondom iframe*/
+        {
+            width    : 100%;
+            /*height   : 100%;*/
+            overflow : hidden;
+            position : relative;
+        }
+
+        #my-iframe
+        {
+            position : relative;
+            top      : -350px;
+            /* left     : -300px;*/
+            width    : 1400px;
+            height   : 800px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+
+        <div id="my-div">
+            <iframe src="http://localhost:8080/users" id="my-iframe" scrolling="yes"></iframe>
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
 </body>
+
+
+
+
+
 </html>

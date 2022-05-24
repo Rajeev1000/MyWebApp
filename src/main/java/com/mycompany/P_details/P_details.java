@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="Patient_Details")
 
-
+ 
 public class P_details {
     public P_details(){
 
@@ -31,16 +31,16 @@ public class P_details {
     @Column(name="Medicine",length = 50,nullable = false)
     private String medicine;
 
-    @Column(name = "Naam",length = 50,nullable = false)
-    private String naam;
+    //@Column(name = "Naam",length = 50,nullable = false)
+   // private String naam;
 
-    public String getNaam() {
-        return naam;
-    }
+    //public String getNaam() {
+    //    return naam;
+    //}
 
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
+   // public void setNaam(String naam) {
+       // this.naam = naam;
+   // }
 
     public String getMedicine() {
         return medicine;
@@ -91,7 +91,7 @@ public class P_details {
                 ", Date='" + Date + '\'' +
                 ", sickness='" + sickness + '\'' +
                 ", medicine='" + medicine + '\'' +
-                ", naam='" + naam + '\'' +
+              //  ", naam='" + naam + '\'' +
                 '}';
     }
 
